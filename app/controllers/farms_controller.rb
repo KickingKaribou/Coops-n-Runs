@@ -19,7 +19,7 @@ class FarmsController < ApplicationController
       if @farm
         redirect_to farm_path(@farm.id)
       else
-        kat_scraper
+        @farm = get_farm
       end
 
     elsif params[:farm][":form_of_rearing"][","].present?
@@ -85,7 +85,6 @@ class FarmsController < ApplicationController
     url = 'https://www.was-steht-auf-dem-ei.de/index.php'
     uri = URI(url)
 
-    # egg = 0-DE-1200112
     form_data = {
       system: params[:form_of_rearing],
       country:  params[:country],
@@ -96,14 +95,22 @@ class FarmsController < ApplicationController
     uri.query = URI.encode_www_form(form_data)
     res = Net::HTTP.get_response(uri)
 
-    # p res
-    # p res.class
-
-    # if res.code == '200' # https://ruby-doc.org/stdlib-2.4.1/libdoc/net/http/rdoc/Net/HTTP.html
-
     html_doc = Nokogiri::HTML(res.body)
-
-    text = html_doc.search('#coderesult > div.data').text.strip
-    # p text
+    html_doc.search('#coderesult > div.data').text.strip
   end
+
+  def interpreter(text, first, last)
+    regex = /#{first}(.*?)#{last}/
+    text.slice(regex, 1)
+  end
+
+  def get_farm
+    name = interpreter(kat_scraper, "Name:", "PLZ:")
+    postcode = interpreter(kat_scraper, "PLZ:", "Ort:")
+    city = interpreter(kat_scraper, "Ort:", "")
+ 
+    # farm = Farm.new(name, postcode, city)
+    # farm.save
+  end
+
 end
