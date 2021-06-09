@@ -1,3 +1,8 @@
+require 'uri'
+require 'net/http'
+require 'nokogiri'
+require 'pry-byebug'
+
 class FarmsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
@@ -9,9 +14,16 @@ class FarmsController < ApplicationController
     # else
     #   @farms = Farm.all
     # end
-    if params[:laying_farm].present?
+  
+    if [:form_of_rearing, :country, :laying_farm].all? { |key| params[key] }
+
       @farm = Farm.find_by(laying_farm: params[:laying_farm])
-      redirect_to farm_path(@farm.id)
+      if @farm
+        redirect_to farm_path(@farm.id)
+      else
+        kat_scraper
+      end
+
     elsif params[:form_of_rearing].present?
       @farms = Farm.where(form_of_rearing: params[:form_of_rearing])
     else
@@ -25,24 +37,12 @@ class FarmsController < ApplicationController
 
   def show
     # authorize @farm
-    if @farm
-      @markers = [@farm].map do |farm|
-        {
-          lat: farm.latitude,
-          lng: farm.longitude
-        }
-      end
-    else
-      #HTTP request
-      #result
-      #farm.create(result)
+    @markers = [@farm].map do |farm|
+      {
+        lat: farm.latitude,
+        lng: farm.longitude
+      }
     end
-    # @markers = [@farm].map do |farm|
-    #   {
-    #     lat: farm.latitude,
-    #     lng: farm.longitude
-    #   }
-    # end
   end
 
   def create
@@ -82,7 +82,31 @@ class FarmsController < ApplicationController
   def farm_params
     params.require(:farm).permit(:name, :form_of_rearing, :country, :laying_farm, :address, :latitude, :longitude, :user_id, :area, :chicken_count, :website_url)
   end
+
+  def kat_scraper
+    url = 'https://www.was-steht-auf-dem-ei.de/index.php'
+    uri = URI(url)
+
+    # egg = 0-DE-1200112
+    form_data = {
+      system: params[:form_of_rearing],
+      country:  params[:country],
+      company:  params[:laying_farm],
+      securityToken:  '28ce931bf4fb5a63f7f0ec709e2c552f'
+    }
+
+    uri.query = URI.encode_www_form(form_data)
+    res = Net::HTTP.get_response(uri)
+
+    # p res
+    # p res.class
+
+    # if res.code == '200' # https://ruby-doc.org/stdlib-2.4.1/libdoc/net/http/rdoc/Net/HTTP.html
+
+    html_doc = Nokogiri::HTML(res.body)
+
+    text = html_doc.search('#coderesult > div.data').text.strip
+    # p text
+    # binding.pry
+  end
 end
-
-
-

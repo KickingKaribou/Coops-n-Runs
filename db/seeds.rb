@@ -339,7 +339,7 @@ Farm.create! ([{
 {
   name: "Farm Karbow II",
   form_of_rearing: "Free-range Rearing",
-  country: "Germany",
+  country: "DE",
   laying_farm: "1300112",
   address: "17209 Melz/Karbow",
   # latitude:
