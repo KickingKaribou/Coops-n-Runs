@@ -16,12 +16,14 @@
             <div>
               <div class="flexbox icon-box-horizontal">
                 <%= image_tag "coop_icon.png" %>
-                <% if farm.form_of_rearing == 0 %>
+                <% if farm.form_of_rearing == "Organic Rearing" %>
                   <p>Organic</p>
-                <% elsif farm.form_of_rearing == 1 %>
+                <% elsif farm.form_of_rearing == "Free-range Rearing" %>
                   <p>Freerange</p>
-                <% else %>
+                <% elsif farm.form_of_rearing == "Barn Rearing" %>
                   <p>Barn</p>
+                <% else farm.form_of_rearing == "Cage Rearing" %>
+                  <p>Cage</p>
                 <% end %>
               </div>
             </div>
