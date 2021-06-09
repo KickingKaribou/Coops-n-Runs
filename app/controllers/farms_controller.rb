@@ -26,6 +26,7 @@ class FarmsController < ApplicationController
 
     elsif params[:form_of_rearing].present?
       @farms = Farm.where(form_of_rearing: params[:form_of_rearing])
+      redirect_to farms_path
     else
       @farms = Farm.all
     end
