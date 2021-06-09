@@ -63,8 +63,8 @@ class FarmsController < ApplicationController
 
   def update
     # @farm = Farm.find(params[:id])
-    @farm.update(params[:restaurant])
-    redirect_to farm_path if @farm.save
+    @farm.update params[:restaurant]
+    redirect_to farm_path(@farm) if @farm.save
   end
 
   def destroy
