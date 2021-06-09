@@ -14,9 +14,7 @@ class FarmsController < ApplicationController
     # else
     #   @farms = Farm.all
     # end
-  
     if [:form_of_rearing, :country, :laying_farm].all? { |key| params[key] }
-
       @farm = Farm.find_by(laying_farm: params[:laying_farm])
       if @farm
         redirect_to farm_path(@farm.id)
@@ -24,9 +22,8 @@ class FarmsController < ApplicationController
         kat_scraper
       end
 
-    elsif params[:form_of_rearing].present?
-      @farms = Farm.where(form_of_rearing: params[:form_of_rearing])
-      redirect_to farms_path
+    elsif params[:farm][":form_of_rearing"][","].present?
+      @farms = Farm.where(form_of_rearing: params[:farm][":form_of_rearing"][","])
     else
       @farms = Farm.all
     end
