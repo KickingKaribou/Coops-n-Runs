@@ -31,11 +31,13 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 # added geocoder gem to convert address into lat/long, see farms model -chris
 gem 'geocoder'
+gem 'nokogiri'
 
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 
