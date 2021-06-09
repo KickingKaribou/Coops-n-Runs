@@ -64,8 +64,7 @@
           <div class="flexbox link-div">
             <%= link_to "Show details", farm_path(farm), class: "btn round btn-primary" %>
             <%= link_to "Edit", edit_farm_path(farm), class: "dashboard-link" %>
-            <%= link_to "Delete", farm_path(farm), method: :delete, class: "dashboard-link" %>
-
+            <%= link_to "Delete", farm_path(farm), method: :delete, class: "dashboard-link", data: { confirm: "Are you sure?" } %>
           </div>
         </div>
     <%end%>
