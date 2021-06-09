@@ -1,7 +1,7 @@
 require 'uri'
 require 'net/http'
 require 'nokogiri'
-require 'pry-byebug'
+# require 'pry-byebug'
 
 class FarmsController < ApplicationController
 
@@ -108,6 +108,5 @@ class FarmsController < ApplicationController
 
     text = html_doc.search('#coderesult > div.data').text.strip
     # p text
-    # binding.pry
   end
 end
