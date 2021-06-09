@@ -1,38 +1,53 @@
-<!-- <div class="container">
+<div class="container">
   <h3>Search by form of rearing</h3>
-  <%#= form_tag(farms_path, method: "get") do %>
-  <select name=farm[:form_of_rearing], class="form-control">
-    <option value="None">-Select-</option>
-    <option value="Organic Rearing">Organic Rearing</option>
-    <option value="Free-range Rearing">Free-range Rearing</option>
-    <option value="Barn Rearing">Barn Rearing</option>
-    <option value="Cage Rearing">Cage rearing</option>
-  </select>
-</div>
-<%# end %>
- -->
+  <div class ="index">
+    <% @farms.each do |farm| %>
+      <div class="farm-card">
+        <div class ="flexbox">
 
-<!-- <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-sm-8">
+          <div>
+            <h3><%= farm.name %></h3>
+            <p><%= farm.address %></p>
+            <br>
+            <p class="green"><a href="#"><p><%= farm.website_url %></p></a>
+          </div>
 
-    <%#= form_tag farms_path, method: :get do %>
-      <%#= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a farm"
-      %>
-      <%#= submit_tag "Search", class: "btn btn-primary" %>
-    <%# end %>
+          <div class="icon-bar-column">
+            <div>
+              <div class="flexbox icon-box-horizontal">
+                <%= image_tag "coop_icon.png" %>
+                <% if farm.form_of_rearing == 0 %>
+                  <p>Organic</p>
+                <% elsif farm.form_of_rearing == 1 %>
+                  <p>Freerange</p>
+                <% else %>
+                  <p>Barn</p>
+                <% end %>
+              </div>
+            </div>
 
-      <div id="farms">
-        <%# @farms.each do |farm| %>
-          <h4><%#= farm.name %></h4>
-          <p><%#= farm.form_of_rearing %></p>
-          <p><%#= farm.country %></p>
-          <p><%#= farm.laying_farm %></p>
-        <%# end %>
-      </div>
-    </div>
+              <div class="flexbox icon-box-horizontal">
+               <%= image_tag "area_icon.png" %>
+               <p><%= farm.area.to_i %>m²</p>
+              </div>
+
+              <div class="flexbox icon-box-horizontal">
+                <%= image_tag "ch_icon.png" %>
+                <p><%= farm.chicken_count %></p>
+              </div>
+            </div>
+          </div>
+
+          <div class ="cards">
+            <%= image_tag "chicken_1.png" %>
+            <%= image_tag "chicken_2.png" %>
+          </div>
+          <div class="flexbox link-div">
+            <%= link_to "Show details", farm_path(farm), class: "btn round btn-primary" %>
+          </div>
+        </div>
+    <%end%>
   </div>
-</div> -->
+</div>
+
+
