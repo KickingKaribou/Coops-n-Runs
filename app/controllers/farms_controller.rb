@@ -1,7 +1,7 @@
 class FarmsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_farm, only: [:show, :edit]
+  before_action :set_farm, only: [:show, :edit, :update, :destroy]
 
   def index
     # if params[:query].present?
@@ -25,12 +25,24 @@ class FarmsController < ApplicationController
 
   def show
     # authorize @farm
-    @markers = [@farm].map do |farm|
-      {
-        lat: farm.latitude,
-        lng: farm.longitude
-      }
+    if @farm
+      @markers = [@farm].map do |farm|
+        {
+          lat: farm.latitude,
+          lng: farm.longitude
+        }
+      end
+    else
+      #HTTP request
+      #result
+      #farm.create(result)
     end
+    # @markers = [@farm].map do |farm|
+    #   {
+    #     lat: farm.latitude,
+    #     lng: farm.longitude
+    #   }
+    # end
   end
 
   def create
@@ -46,17 +58,17 @@ class FarmsController < ApplicationController
   end
 
   def edit
-    @farm = Farm.find(params[:id])
+    # @farm = Farm.find(params[:id])
   end
 
   def update
-    @farm = Farm.find(params[:id])
+    # @farm = Farm.find(params[:id])
     @farm.update(params[:restaurant])
     redirect_to farm_path if @farm.save
   end
 
   def destroy
-    @farm = Farm.find(params[:id])
+    # @farm = Farm.find(params[:id])
     @farm.destroy
     redirect_to farm_path
   end
