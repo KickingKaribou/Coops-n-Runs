@@ -13,6 +13,12 @@
     color: #5F782F;
 }
 
+.btn.btn-outline{
+    color: $old-green;
+    border-color: $old-green;
+    border-width: 2px;
+}
+
 .dashboard-link {
   font-family: "Arvo", 'Courier New';
   font-weight: 700;
