@@ -1,7 +1,7 @@
 <div class="mx-auto w-75 my-5">
   <h2 class="text-left">Edit your farm</h2>
   <p class="text-left">Your email will only be used for storing purposes! We won’t sell your data or send you mails.</p>
-  <%= simple_form_for @farm, html: { class: 'w-100' } do |f| %>
+ <%= simple_form_for @farm, html: { class: 'w-100' } do |f| %>
     <%= f.input :laying_farm,
                 required: true,
                 autofocus: true,
@@ -28,11 +28,7 @@
                 required: true,
                 autofocus: true,
                 :placeholder => 'Country' %>
-    <%#= f.input :country %>
-    <%= f.input :form_of_rearing,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "form_of_rearing" }%>
+    <%= f.input :form_of_rearing, collection: [ "Organic Rearing", "Free-range Rearing", "Barn Rearing", "Cage Rearing" ] %>
     <%= f.input :area,
                 required: true,
                 autofocus: true,

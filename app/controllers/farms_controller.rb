@@ -56,14 +56,21 @@ class FarmsController < ApplicationController
   end
 
   def edit
-    # @farm = Farm.find(params[:id])
+  @farm = Farm.find(params[:id])
   end
 
   def update
     @farm = Farm.find(params[:id])
-    # @farm.update params[:farm]
-    redirect_to farm_path(@farm) if @farm.save
+    address = params[:farm][:street] + " " + params[:farm][:postcode] + " " + params[:farm][:city] + " " + params[:farm][:country]
+    @farm.update(name: params[:farm][:name], laying_farm: params[:farm][:laying_farm], website_url: params[:farm][:website_url], address: address, country: params[:farm][:country], form_of_rearing: params[:farm][:form_of_rearing], area: params[:farm][:area], chicken_count: params[:farm][:chicken_count], description: params[:farm][:description])
+    redirect_to farm_path(@farm)
   end
+
+  # def update
+  #   @farm = Farm.find(params[:id])
+  #   # @farm.update params[:farm]
+  #   redirect_to farm_path(@farm) if @farm.save
+  # end
 
   def destroy
     # @farm = Farm.find(params[:id])
