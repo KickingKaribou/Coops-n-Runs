@@ -93,13 +93,16 @@
 <!-- Informations container -->
 <div class="container text-align: left ">
   <h3>Where do “my” chickens live? </h3>
-  <p>Do you know where the coop is?<br>
-  What do the runs look like?<br>
-  Is it really an organic farm?</p>
-  <%= image_tag "chickens.png", class: "chicken_img", alt: "chicken image", width:"100%" %> 
-  <br>
-  <p>Take a closer look at those coops. <br> 
-  Some are not as good as they seem, many are better than what the number tells you!</p>
+
+  <div class="col-12">
+    <p>Do you know where the coop is?<br>
+    What do the runs look like?<br>
+    Is it really an organic farm?</p>
+    <%= image_tag "chickens.png", class: "chicken_img", alt: "chicken image", width:"100%" %> 
+    <br>
+    <p>Take a closer look at those coops. <br> 
+    Some are not as good as they seem, many are better than what the number tells you!</p>
+  </div>
 </div>
 
 <div class="container text-align: left">
@@ -121,37 +124,16 @@
 
 <div class="container text-align: left">
   <h3>~116.666.666.666 eggs per year</h3>
-  <p>or 7 million tonnes are produced every year in the EU alone. In one second at least 3 of 366 million hens are laying an egg.</p>
-  <div class="d-flex justify-content-center align-items-center col-12">
-    <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
-    <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
-    <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
-    <h2>  per second</h2>
+
+  <div class="col-12">
+    <p>or 7 million tonnes are produced every year in the EU alone. In one second at least 3 of 366 million hens are laying an egg.</p>
+    <div class="d-flex justify-content-center align-items-center col-12">
+      <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
+      <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
+      <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
+      <h2>  per second</h2>
+    </div>
+    <p>Your fridge would be filled in 20 to 25 minutes. <br> But who needs that many eggs?</p>
   </div>
-  <p>Your fridge would be filled in 20 to 25 minutes. <br> But who needs that many eggs?</p>
 </div>
-<!-- Footer -->
-<footer>
-  <div class="grass-image">
-    <%= image_tag "grass.png", class: "grass-image", alt: "avatar-bordered", style: "float:left" %>
-  </div>
-  <div class="footer-links">
-    <!--<%= image_tag "account_icon.png", class: "avatar icon", alt: "avatar-bordered" %>
-    <%= link_to "Farmer login", new_user_session_path %> <br>-->
 
-    <%# login logic for footer %>
-    <% if user_signed_in? %>
-      <div class="logout">
-        <%= image_tag "account_placeholder.png", class: "avatar" %> <br>
-        <%= link_to "My Farms", dashboard_index_path %> <br>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-      </div>
-    <% else %>
-        <%= link_to "Farmer login", new_user_session_path %>
-    <% end %> <br>
-
-    <a href="#">Sources<i class="Sources"></i></a><br>
-    <a href="https://brudertier.bio/bruderhahn/garantie">Brother Roosters<i class="Brothers roosters"></i></a><br>
-    <a href="https://www.was-steht-auf-dem-ei.de">KAT Homepage<i class="KAT"></i></a>
-  </div>
-</footer>

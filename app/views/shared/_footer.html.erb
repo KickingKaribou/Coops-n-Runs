@@ -1,0 +1,24 @@
+<footer>
+  <div class="grass-image">
+    <%= image_tag "grass.png", class: "grass-image", alt: "avatar-bordered", style: "float:left" %>
+  </div>
+  <div class="footer-links">
+    <!--<%= image_tag "account_icon.png", class: "avatar icon", alt: "avatar-bordered" %>
+    <%= link_to "Farmer login", new_user_session_path %> <br>-->
+
+    <%# login logic for footer %>
+    <% if user_signed_in? %>
+      <div class="logout">
+        <%= image_tag "account_placeholder.png", class: "avatar" %> <br>
+        <%= link_to "My Farms", dashboard_index_path %> <br>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      </div>
+    <% else %>
+        <%= link_to "Farmer login", new_user_session_path %>
+    <% end %> <br>
+
+    <a href="#">Sources<i class="Sources"></i></a><br>
+    <a href="https://brudertier.bio/bruderhahn/garantie">Brother Roosters<i class="Brothers roosters"></i></a><br>
+    <a href="https://www.was-steht-auf-dem-ei.de">KAT Homepage<i class="KAT"></i></a>
+  </div>
+</footer>
