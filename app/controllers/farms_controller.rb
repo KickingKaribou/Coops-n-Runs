@@ -24,6 +24,7 @@ class FarmsController < ApplicationController
 
     elsif params[:farm][":form_of_rearing"][","].present?
       @farms = Farm.where(form_of_rearing: params[:farm][":form_of_rearing"][","])
+
     else
       @farms = Farm.all
     end
@@ -49,7 +50,7 @@ class FarmsController < ApplicationController
     @farm.address = address
     @farm.user = current_user
     if @farm.save
-      redirect_to farm_path(@farm)
+      redirect_to farm_path(@farm.id)
     else
       render :new
     end
