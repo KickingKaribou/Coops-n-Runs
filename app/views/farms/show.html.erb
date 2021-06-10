@@ -16,7 +16,7 @@
 
   <div class ="row justify-content-between icon-bar-show">
     <div>
-      <%= image_tag "coop_icon.png" %>
+      <%= image_tag "coop_icon.png", class: "icon" %>
       <% if @farm.form_of_rearing == "0" %>
         <p>Organic Rearing</p>
       <% elsif @farm.form_of_rearing == "1" %>
@@ -29,11 +29,11 @@
 
      </div>
     <div>
-     <%= image_tag "area_icon.png" %>
+     <%= image_tag "area_icon.png", class: "icon" %>
      <p><%= @farm.area.to_i %> m²</p>
     </div>
     <div>
-      <%= image_tag "ch_icon.png" %>
+      <%= image_tag "ch_icon.png", class: "icon" %>
       <p><%= @farm.chicken_count.to_i %> Chickens</p>
     </div>
   </div>
