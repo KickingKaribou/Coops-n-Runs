@@ -108,12 +108,28 @@ class FarmsController < ApplicationController
   end
 
   def get_farm
-    name = interpreter(kat_scraper, "Name:", "PLZ:")
-    postcode = interpreter(kat_scraper, "PLZ:", "Ort:")
-    city = interpreter(kat_scraper, "Ort:", "")
- 
-    # farm = Farm.new(name, postcode, city)
-    # farm.save
+    name = interpreter(kat_scraper, "Name: ", "PLZ: ")
+    postcode = interpreter(kat_scraper, "PLZ: ", "Ort: ")
+    city = interpreter(kat_scraper, "Ort: ", "$")
+    address = postcode + city + " " + params[:country]
+
+    @farm = Farm.new
+    @farm.form_of_rearing = params[:form_of_rearing].to_s
+    @farm.country = params[:country]
+    @farm.laying_farm = params[:laying_farm]
+    @farm.name = name
+    @farm.address = address
+    @farm.user_id = 1
+
+    raise
+    if @farm.save
+      raise
+      redirect_to farm_path(@farm.id)
+    else
+      redirect_to root_path
+    end
   end
+
+  
 
 end
