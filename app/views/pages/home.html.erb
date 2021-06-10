@@ -13,13 +13,11 @@
 
 <div class="container">
   <h3>Please enter a farm code</h3>
-
   
   <%= form_tag farms_path, method: :get do %>
-  <div class="d-flex justify-content-center align-items-center col-12">
+  <div class="d-flex justify-content-between align-items-center col-12">
 
-    <div class="p-2">
-      <%# <label for="form_of_rearing"></label> %>
+    <div class="">
       <select name="form_of_rearing" id="form_of_rearing">
           <option value="0">0</option>
           <option value="1">1</option>
@@ -28,8 +26,7 @@
       </select>
     </div>
     
-    <div class="p-2">
-      <%# <label for="country"></label> %>
+    <div class="">
       <select name="country" id="country">
           <option value="DE">DE</option>
           <option value="FR">FR</option>
@@ -47,7 +44,7 @@
       </select>
     </div>
     
-    <div class="p-2">
+    <div class="">
       <%= text_field_tag :laying_farm,
         params[:laying_farm],
         class: "form-control",
@@ -55,8 +52,8 @@
       %>
     </div>
 
-    <span class="icon_info.png"></span>
-    <%= image_tag "info_icon.png" %>
+    <span class="info_icon.png"></span>
+    <%= image_tag "info_icon.png"%>
 
   </div>
     <div class="col-12">
@@ -70,24 +67,25 @@
   <h3>...or search by type</h3>
 
   
-  <%= form_tag farms_path, method: :get do %>
-  <div class="d-flex justify-content-center align-items-center col-12">
+    <%= form_tag farms_path, method: :get do %>
+  <div>
 
     <div class="col-12">
-     <select name=farm[:form_of_rearing], class="form-control">
-      <option value="None">Select</option>
-      <option value="Organic Rearing">Organic rearing</option>
-      <option value="Free-range Rearing">Free-range rearing</option>
-      <option value="Barn Rearing">Barn rearing</option>
-      <option value="Cage Rearing">Cage rearing</option>
-    </select>
-  </div>
+      <select name=farm[:form_of_rearing], class="form-control">
+          <option value="None">Select</option>
+          <option value="Organic Rearing">Organic rearing</option>
+          <option value="Free-range Rearing">Free-range rearing</option>
+          <option value="Barn Rearing">Barn rearing</option>
+          <option value="Cage Rearing">Cage rearing</option>
+      </select>
+    </div>
 
-  </div>
+  
     <div class="col-12">
       <%= submit_tag "SEARCH", class: "btn round btn-outline col-12" %>
       <% end %>
     </div>
+  
   </div>
 </div>
 
