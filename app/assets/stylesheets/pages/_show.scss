@@ -20,7 +20,7 @@
 .show {
   p {
   margin-bottom: 0;
-  width: 80%;
+  width: 100%;
   }
   a {
     color: $old-green;
@@ -31,15 +31,16 @@
 
 .icon-bar-show {
   width: 100%;
-  margin: 8px auto;
+  margin: 32px auto;
+  font-weight: 700;
   img {
-    width: 35px;
+    width: 24px;
   }
   div {
     align-items: center;
     text-align: center;
     justify-content: space-around;
-    width: 65px;
+    width: 80px;
     display: flex;
     flex-direction: column;
   }
@@ -99,7 +100,7 @@ padding-left: 20px;
 }
 
 .show-details {
-  margin-top: 20px;
+  margin: 24px 0;
 }
 
 .link-wrapper {
@@ -112,4 +113,7 @@ padding-left: 20px;
   margin-left: 8px;
   }
 
+  .avatar-large{
+    margin-right: 16px;
+  }
 
