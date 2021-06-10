@@ -29,18 +29,19 @@
   }
 }
 
-.icon-bar {
+.icon-bar-show {
   width: 90%;
   margin: 8px auto;
   img {
     width: 35px;
   }
   div {
+    align-items: center;
+    text-align: center;
     justify-content: space-around;
     width: 65px;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -62,6 +63,10 @@ padding-left: 20px;
 
 .icon-box-horizontal {
   margin-bottom: 10px;
+}
+
+.flexgrow {
+  flex-grow: 1;
 }
 
 .hello-user {
@@ -91,9 +96,19 @@ padding-left: 20px;
 }
 
 .item-center {
-  margin: 10px auto 10px auto;
+  align-items: center;
 }
 
 .show-details {
   margin-top: 20px;
 }
+
+.link-wrapper {
+  width: 100%;
+  text-align: center;
+  }
+
+  .width-larger {
+  width: 130px;
+  margin-left: 8px;
+  }
