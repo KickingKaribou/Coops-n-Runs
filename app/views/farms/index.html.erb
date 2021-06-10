@@ -16,8 +16,14 @@
             <div>
               <div class="flexbox icon-box-horizontal">
                 <%= image_tag "coop_icon.png" %>
-                <p><%= farm.form_of_rearing %> </p>
-              </div>
+                <% if farm.form_of_rearing == "Organic Rearing" %>
+                  <p>Organic</p>
+                <% elsif farm.form_of_rearing == "Free-range Rearing" %>
+                    <p>Freerange</p>
+                <% else %>
+                    <p>Barn</p>
+                  <% end %>
+                </div>
             </div>
 
               <div class="flexbox icon-box-horizontal">
@@ -27,7 +33,7 @@
 
               <div class="flexbox icon-box-horizontal">
                 <%= image_tag "ch_icon.png" %>
-                <p><%= farm.chicken_count.to_i %> Chickens</p>
+                <p><%= farm.chicken_count.to_i %></p>
               </div>
             </div>
           </div>
