@@ -81,6 +81,10 @@ class FarmsController < ApplicationController
     params.require(:farm).permit(:name, :form_of_rearing, :country, :laying_farm, :address, :latitude, :longitude, :user_id, :area, :chicken_count, :website_url)
   end
 
+  def kat_params
+    params.require(:farm).permit(:form_of_rearing, :country, :laying_farm)
+  end
+
   def kat_scraper
     url = 'https://www.was-steht-auf-dem-ei.de/index.php'
     uri = URI(url)
@@ -108,19 +112,18 @@ class FarmsController < ApplicationController
     name = interpreter(kat_scraper, "Name: ", "PLZ: ")
     postcode = interpreter(kat_scraper, "PLZ: ", "Ort: ")
     city = interpreter(kat_scraper, "Ort: ", "$")
-    address = postcode + city + " " + params[:country]
+    address = postcode + " " + city + " " + params[:country]
 
-    @farm = Farm.new
+    @farm = Farm.new()
     @farm.form_of_rearing = params[:form_of_rearing].to_s
     @farm.country = params[:country]
     @farm.laying_farm = params[:laying_farm]
     @farm.name = name
     @farm.address = address
-    @farm.user_id = 1
-
-    raise
+    # @farm.user_id = current_user.id
+    
     if @farm.save
-      raise
+      
       redirect_to farm_path(@farm.id)
     else
       redirect_to root_path

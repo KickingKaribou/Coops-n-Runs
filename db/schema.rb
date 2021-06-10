@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_143830) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "area"
