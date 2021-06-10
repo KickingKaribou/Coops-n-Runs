@@ -17,7 +17,14 @@
   <div class ="row justify-content-between icon-bar-show">
     <div>
       <%= image_tag "coop_icon.png", class: "icon" %>
-     <p><%= @farm.form_of_rearing %> </p>
+
+      <% if @farm.form_of_rearing == "0" %>
+        <p>Organic</p>
+      <% elsif @farm.form_of_rearing == "1" %>
+         <p>Freerange</p>
+      <% else %>
+        <p>Barn</p>
+      <% end %>
      </div>
     <div>
      <%= image_tag "area_icon.png", class: "icon" %>
