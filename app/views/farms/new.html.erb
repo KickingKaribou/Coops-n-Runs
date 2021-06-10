@@ -29,7 +29,7 @@
                 autofocus: true,
                 :placeholder => 'Country' %>
     <%#= f.input :country %>
-    <%= f.input :form_of_rearing, 
+    <%= f.input :form_of_rearing, collection: [ "0", "1", "2", "3" ] %>
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "form_of_rearing" }%>
@@ -43,6 +43,5 @@
                 autofocus: true,
                 input_html: { autocomplete: "chicken_count" }%>
     <%= f.input :description, as: :text %>
-    <%= f.submit "Save", class:"btn round btn-primary", data: { confirm: "Farm has been saved succesfully!" }%>
     <% end %>
 </div>
