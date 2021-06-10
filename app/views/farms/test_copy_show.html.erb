@@ -1,8 +1,8 @@
 <div class ="container show">
   <h3><%= @farm.name %></h3>
-  <div class ="flexbox align-items-center">
+  <div class ="flexbox">
     <%= image_tag "account_placeholder.png", class: "avatar-large" %>
-    <div class="width-larger">
+    <div>
       <p><%= @farm.user&.first_name%> <%= @farm.user&.last_name%></p>
       <p><%= @farm.address %></p>
       <a href="#"><%= @farm.website_url %></a>

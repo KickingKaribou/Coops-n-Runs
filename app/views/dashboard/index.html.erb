@@ -14,17 +14,16 @@
       <% end %>
     </div>
 
-    <div>
-      <%= link_to "Add farm", new_farm_path, class: "btn round btn-primary item-center" %>
+    <div class="link-wrapper">
+        <%= link_to "Add farm", new_farm_path, class: "btn round btn-primary item-center" %>
     </div>
-
 
   <div class ="show">
     <% @farms.each do |farm| %>
       <div class="farm-card">
         <div class ="flexbox">
 
-          <div>
+          <div class="flexgrow">
             <h3><%= farm.name %></h3>
             <p><%= farm.address %></p>
             <br>
