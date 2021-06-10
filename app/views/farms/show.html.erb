@@ -3,7 +3,7 @@
   <div class ="flexbox">
     <%= image_tag "account_placeholder.png", class: "avatar-large" %>
     <div>
-      <p><%= @farm.user.first_name%> <%= @farm.user.last_name%></p>
+      <p><%= @farm.user&.first_name%> <%= @farm.user&.last_name%></p>
       <p><%= @farm.address %></p>
       <a href="#"><%= @farm.website_url %></a>
     </div>
@@ -17,13 +17,13 @@
   <div class ="row justify-content-between icon-bar">
     <div>
       <%= image_tag "coop_icon.png" %>
-      <% if farm.form_of_rearing == "Organic Rearing" %>
+      <% if @farm.form_of_rearing == "Organic Rearing" %>
         <p>Organic</p>
-      <% elsif farm.form_of_rearing == "Free-range Rearing" %>
+      <% elsif @farm.form_of_rearing == "Free-range Rearing" %>
         <p>Freerange</p>
-      <% elsif farm.form_of_rearing == "Barn Rearing" %>
+      <% elsif @farm.form_of_rearing == "Barn Rearing" %>
         <p>Barn</p>
-      <% else farm.form_of_rearing == "Cage Rearing" %>
+      <% else @farm.form_of_rearing == "Cage Rearing" %>
         <p>Cage</p>
       <% end %>
 
