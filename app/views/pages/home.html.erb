@@ -15,7 +15,7 @@
   <h3>Please enter a farm code</h3>
   
   <%= form_tag farms_path, method: :get do %>
-  <div class="d-flex justify-content-between align-items-center col-11">
+  <div class="d-flex justify-content-between align-items-center col-12">
 
     <div>
       <select name="form_of_rearing" id="form_of_rearing">
@@ -56,7 +56,7 @@
     <%= image_tag "info_icon.png"%>
 
   </div>
-    <div class="col-11">
+    <div class="col-12">
       <%= submit_tag "FIND", class: "btn round btn-primary col-12" %>
       <% end %>
     </div>
@@ -70,7 +70,7 @@
     <%= form_tag farms_path, method: :get do %>
   <div>
 
-    <div class="col-11">
+    <div class="col-12">
       <select name=farm[:form_of_rearing], class="form-control">
           <option value="None">Select</option>
           <option value="Organic Rearing">Organic rearing</option>
@@ -81,7 +81,7 @@
     </div>
 
   
-    <div class="col-11">
+    <div class="col-12">
       <%= submit_tag "SEARCH", class: "btn round btn-outline col-12" %>
       <% end %>
     </div>
@@ -96,26 +96,33 @@
   <p>Do you know where the coop is?<br>
   What do the runs look like?<br>
   Is it really an organic farm?</p>
-  <%= image_tag "chickens.png", class: "chicken_img", alt: "chicken image", width:"90%" %> 
+  <%= image_tag "chickens.png", class: "chicken_img", alt: "chicken image", width:"100%" %> 
   <br>
   <p>Take a closer look at those coops. <br> 
   Some are not as good as they seem, many are better than what the number tells you!</p>
 </div>
+
 <div class="container text-align: left">
   <h3>How many eggs do you eat?</h3>
-</div>
- <div class="d-flex justify-content-center align-items-center col-11">
-  <div class="p-2">
-    <p>Did you know that the average European eats about 220 eggs a year? That is roughly 13kg of eggs. </p>
+
+  <div class="d-flex justify-content-between align-items-center col-12">
+
+    <div class="">
+      <p>Did you know that the average European eats about 220 eggs a year? That is roughly 13kg of eggs. </p>
+    </div>
+
+    <div class="">
+      <%= image_tag "visu_eggs.png", alt: "visu_eggs" %>
+    </div>
+
   </div>
-  <div class="p-2">
-    <%= image_tag "visu_eggs.png", alt: "visu_eggs" %>
-  </div>
+
 </div>
+
 <div class="container text-align: left">
   <h3>~116.666.666.666 eggs per year</h3>
   <p>or 7 million tonnes are produced every year in the EU alone. In one second at least 3 of 366 million hens are laying an egg.</p>
-  <div class="d-flex justify-content-center align-items-center col-11">
+  <div class="d-flex justify-content-center align-items-center col-12">
     <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
     <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
     <%= image_tag "egg_icon.png", class: "icon-bordered icon", alt: "icon-bordered" %>
