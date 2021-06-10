@@ -2,11 +2,9 @@
     <div class="flexbox header-dashboard">
       <%= image_tag "account_placeholder.png", class: "avatar-large" %>
       <div>
-        <h2 class="hello-user">Hello <%= current_user.first_name %></h2>
+        <h2 class="hello-user"><%= current_user.first_name %> <%= current_user.last_name %></h2>
         <p class="green"><%= @current_user.email %></p>
-<!--         <p>Family owned business for 2 generations in the south of Mecklenburg-Western Pomerania. Our chickens love the wide plains here.</p>
 
- -->
         <p><%= @farms_description %></p>
       </div>
       <%= link_to(edit_user_registration_path) do %>
