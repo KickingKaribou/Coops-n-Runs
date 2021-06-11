@@ -13,7 +13,7 @@
 
 <div class="container">
   <h3>Please enter a farm code</h3>
-  
+
   <%= form_tag farms_path, method: :get do %>
   <div class="d-flex justify-content-between align-items-center col-12">
 
@@ -25,7 +25,7 @@
           <option value="3">3</option>
       </select>
     </div>
-    
+
     <div id="country_select">
       <select name="country" id="country">
           <option value="DE">DE</option>
@@ -43,7 +43,7 @@
           <option value="HU">HU</option>
       </select>
     </div>
-    
+
     <div id="laying-f">
       <%= text_field_tag :laying_farm,
         params[:laying_farm],
@@ -66,7 +66,7 @@
 <div class="container">
   <h3>...or search by type</h3>
 
-  
+
     <%= form_tag farms_path, method: :get do %>
   <div>
 
@@ -78,14 +78,26 @@
           <option value="Barn Rearing">Barn rearing</option>
           <option value="Cage Rearing">Cage rearing</option>
       </select>
+
+     <!--  <#%= simple_form_for @user do |f| %>
+        <#%= f.input :form_of_rearing, :collection ["Organic rearing", "Freerange rearing", "Barn rearing"] %>
+        <#%= f.button :submit %>
+      <#% end %>
+        <#% if :form_of_rearing == "Organic rearing" %>
+          <#% :form_of_rearing = "0" %>
+        <#% elsif :form_of_rearing == "Freerange rearing" %>
+          <#% :form_of_raering = "1" %>
+        <#% else %>
+          <#% form_of_rearing = "2" %>
+        <#% end %> -->
     </div>
 
-  
+
     <div class="col-12">
       <%= submit_tag "SEARCH", class: "btn round btn-outline col-12" %>
       <% end %>
     </div>
-  
+
   </div>
 </div>
 
@@ -98,9 +110,9 @@
     <p>Do you know where the coop is?<br>
     What do the runs look like?<br>
     Is it really an organic farm?</p>
-    <%= image_tag "chickens.png", class: "chicken_img", alt: "chicken image", width:"100%" %> 
+    <%= image_tag "chickens.png", class: "chicken_img", alt: "chicken image", width:"100%" %>
     <br>
-    <p>Take a closer look at those coops. <br> 
+    <p>Take a closer look at those coops. <br>
     Some are not as good as they seem, many are better than what the number tells you!</p>
   </div>
 </div>
